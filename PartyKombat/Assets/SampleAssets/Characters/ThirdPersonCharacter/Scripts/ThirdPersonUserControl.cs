@@ -41,51 +41,64 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 
         void Update()
         {
-            if(!jump)
-                jump = CrossPlatformInputManager.GetButtonDown("Jump");
+
+			if (GameController.control.currentKid == character.advancedSettings.characterID) {
+					if (!jump)
+							jump = CrossPlatformInputManager.GetButtonDown ("Jump");
+			}
         }
 
         // Fixed update is called in sync with physics
         private void FixedUpdate()
         {
-            // read inputs
-            bool crouch = false;
+			if (Input.GetKey (KeyCode.Alpha1) == true) {
+				GameController.control.currentKid = 1;
+			}else if (Input.GetKey (KeyCode.Alpha2) == true) {
+				GameController.control.currentKid = 2;
+			}else if (Input.GetKey (KeyCode.Alpha3) == true) {
+				GameController.control.currentKid = 3;
+			}else if (Input.GetKey (KeyCode.Alpha4) == true) {
+				GameController.control.currentKid = 4;
+			}
 
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
-            crouch = Input.GetKey(KeyCode.C);
+			if (GameController.control.currentKid == character.advancedSettings.characterID) {
+								// read inputs
+					bool crouch = false;
 
-            // calculate move direction to pass to character
-            if (cam != null)
-            {
-                // calculate camera relative direction to move:
-                camForward = Vector3.Scale(cam.forward, new Vector3(1, 0, 1)).normalized;
-                move = v*camForward + h*cam.right;
-            }
-            else
-            {
-                // we use world-relative directions in the case of no main camera
-                move = v*Vector3.forward + h*Vector3.right;
-            }
+					float h = CrossPlatformInputManager.GetAxis ("Horizontal");
+					float v = CrossPlatformInputManager.GetAxis ("Vertical");
+					crouch = Input.GetKey (KeyCode.C);
 
-            if (move.magnitude > 1) move.Normalize();
+					// calculate move direction to pass to character
+					if (cam != null) {
+							// calculate camera relative direction to move:
+							camForward = Vector3.Scale (cam.forward, new Vector3 (1, 0, 1)).normalized;
+							move = v * camForward + h * cam.right;
+					} else {
+							// we use world-relative directions in the case of no main camera
+							move = v * Vector3.forward + h * Vector3.right;
+					}
 
-#if !MOBILE_INPUT
-            // On non-mobile builds, walk/run speed is modified by a key press.
-            bool walkToggle = Input.GetKey(KeyCode.LeftShift);
-            // We select appropriate speed based on whether we're walking by default, and whether the walk/run toggle button is pressed:
-            float walkMultiplier = (walkByDefault ? walkToggle ? 1 : 0.5f : walkToggle ? 0.5f : 1);
-            move *= walkMultiplier;
-#endif
+					if (move.magnitude > 1)
+							move.Normalize ();
 
-            // calculate the head look target position
-            lookPos = lookInCameraDirection && cam != null
-                          ? transform.position + cam.forward*100
-                          : transform.position + transform.forward*100;
+	#if !MOBILE_INPUT
+					// On non-mobile builds, walk/run speed is modified by a key press.
+					bool walkToggle = Input.GetKey (KeyCode.LeftShift);
+					// We select appropriate speed based on whether we're walking by default, and whether the walk/run toggle button is pressed:
+					float walkMultiplier = (walkByDefault ? walkToggle ? 1 : 0.5f : walkToggle ? 0.5f : 1);
+					move *= walkMultiplier;
+	#endif
 
-            // pass all parameters to the character control script
-            character.Move(move, crouch, jump, lookPos);
-            jump = false;
+					// calculate the head look target position
+					lookPos = lookInCameraDirection && cam != null
+	? transform.position + cam.forward * 100
+	: transform.position + transform.forward * 100;
+
+					// pass all parameters to the character control script
+					character.Move (move, crouch, jump, lookPos);
+					jump = false;
+			}
         }
     }
 }

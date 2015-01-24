@@ -12,12 +12,13 @@ namespace UnitySampleAssets.Characters.ThirdPerson
         [Range(1, 4)] [SerializeField] public float gravityMultiplier = 2; // gravity modifier - often higher than natural gravity feels right for game characters
         [SerializeField] [Range(0.1f, 3f)] private float moveSpeedMultiplier = 1; // how much the move speed of the character will be multiplied by
         [SerializeField] [Range(0.1f, 3f)] private float animSpeedMultiplier = 1; // how much the animation of the character will be multiplied by
-        [SerializeField] private AdvancedSettings advancedSettings; // Container for the advanced settings class , thiss allows the advanced settings to be in a foldout in the inspector
+		public AdvancedSettings advancedSettings; // Container for the advanced settings class , thiss allows the advanced settings to be in a foldout in the inspector
 
 
         [System.Serializable]
         public class AdvancedSettings
         {
+			public float characterID = 1;
             public float stationaryTurnSpeed = 180; // additional turn speed added when the player is stationary (added to animation root rotation)
             public float movingTurnSpeed = 360; // additional turn speed added when the player is moving (added to animation root rotation)
             public float headLookResponseSpeed = 2; // speed at which head look follows its target
@@ -59,6 +60,7 @@ namespace UnitySampleAssets.Characters.ThirdPerson
         {
             animator = GetComponentInChildren<Animator>();
             capsule = collider as CapsuleCollider;
+			GameController.control.setRefKid (this.gameObject, (int)this.advancedSettings.characterID);
 
             // as can return null so we need to make sure thats its not before assigning to it
             if (capsule == null)
