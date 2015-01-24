@@ -64,10 +64,21 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 			if (GameController.control.currentKid == character.advancedSettings.characterID) {
 								// read inputs
 					bool crouch = false;
+					bool attack = false;
+					bool primary = true;
 
 					float h = CrossPlatformInputManager.GetAxis ("Horizontal");
 					float v = CrossPlatformInputManager.GetAxis ("Vertical");
-					crouch = Input.GetKey (KeyCode.C);
+					
+
+					if (character.advancedSettings.characterID == 2) {
+						crouch = Input.GetKey (KeyCode.C);
+						GameController.control.crouching = crouch;
+					} else {
+						GameController.control.crouching = false;
+					}
+					attack = Input.GetKey (KeyCode.E);
+					primary = Input.GetKey(KeyCode.F);
 
 					// calculate move direction to pass to character
 					if (cam != null) {
@@ -96,7 +107,7 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 	: transform.position + transform.forward * 100;
 
 					// pass all parameters to the character control script
-					character.Move (move, crouch, jump, lookPos);
+					character.Move (move, crouch, jump, lookPos, attack,primary);
 					jump = false;
 			}
         }

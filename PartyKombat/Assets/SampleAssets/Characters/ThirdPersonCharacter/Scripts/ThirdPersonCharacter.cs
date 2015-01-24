@@ -48,6 +48,8 @@ namespace UnitySampleAssets.Characters.ThirdPerson
         private Vector3 moveInput;
         private bool crouchInput;
         private bool jumpInput;
+		private bool attackInput;
+		private bool primaryInput;
         private float turnAmount;
         private float forwardAmount;
         private Vector3 velocity;
@@ -102,7 +104,7 @@ namespace UnitySampleAssets.Characters.ThirdPerson
         }
         // The Move function is designed to be called from a separate component
         // based on User input, or an AI control script
-        public void Move(Vector3 move, bool crouch, bool jump, Vector3 lookPos)
+        public void Move(Vector3 move, bool crouch, bool jump, Vector3 lookPos, bool attacked, bool primary)
         {
 
             if (move.magnitude > 1) move.Normalize();
@@ -112,6 +114,9 @@ namespace UnitySampleAssets.Characters.ThirdPerson
             this.crouchInput = crouch;
             this.jumpInput = jump;
             this.currentLookPos = lookPos;
+			this.attackInput = attacked;
+
+			this.primaryInput = primary;
 
             // grab current velocity, we will be changing it.
             velocity = rigidbody.velocity;
@@ -319,15 +324,32 @@ namespace UnitySampleAssets.Characters.ThirdPerson
         private void UpdateAnimator()
         {
             // Here we tell the animator what to do based on the current states and inputs.
-
+			if (attackInput) {
+				animator.SetTrigger("Attack");
+				}
             // only use root motion when on ground:
             animator.applyRootMotion = onGround;
 
             // update the animator parameters
             animator.SetFloat("Forward", forwardAmount, 0.1f, Time.deltaTime);
             animator.SetFloat("Turn", turnAmount, 0.1f, Time.deltaTime);
-            animator.SetBool("Crouch", crouchInput);
+			animator.SetBool ("Crouch", crouchInput);
+
             animator.SetBool("OnGround", onGround);
+
+			animator.SetBool ("Push", false);
+
+			switch((int)this.advancedSettings.characterID){
+			case 1:
+				//animator.SetBool("Push", primaryInput);
+				break;
+			default:
+				break;
+
+			}
+		
+
+
             if (!onGround)
             {
                 animator.SetFloat("Jump", velocity.y);
@@ -344,9 +366,10 @@ namespace UnitySampleAssets.Characters.ThirdPerson
             {
                 animator.SetFloat("JumpLeg", jumpLeg);
             }
-
+		
             // the anim speed multiplier allows the overall speed of walking/running to be tweaked in the inspector,
             // which affects the movement speed because of the root motion.
+
             if (onGround && moveInput.magnitude > 0)
             {
                 animator.speed = animSpeedMultiplier;
@@ -408,6 +431,16 @@ namespace UnitySampleAssets.Characters.ThirdPerson
             }
         }
 
+		void OnTriggerEnter(Collider other){
+
+			if (advancedSettings.characterID == 1) {
+				Debug.Log("GOTHERE");
+					if (other.tag.Equals ("Pushable")) {
+							animator.SetTrigger ("Push");
+							//other.rigidbody.AddForce(10,0,0);
+				}
+			}
+		}
 
         void OnDisable()
         {
