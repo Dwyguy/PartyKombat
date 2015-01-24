@@ -47,6 +47,8 @@ namespace UnitySampleAssets.Cameras
             {
                 Screen.lockCursor = lockCursor;
             }
+
+			this.SetTarget(GameController.control.refKids [(int)GameController.control.currentKid - 1].transform);
         }
 
         private void OnDisable()
