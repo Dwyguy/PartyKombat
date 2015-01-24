@@ -31,8 +31,8 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 			if (GameController.control.currentKid != character.advancedSettings.characterID) {
 
 				target = GameController.control.refKids[(int)GameController.control.currentKid-1].transform.GetChild((int)character.advancedSettings.characterID+1).gameObject.transform;
-			
-					if (target != null) {
+
+				if (target != null && !(GameController.control.crouching)) {
 							// update the progress if the character has made it to the previous target
 							if ((target.position - targetPos).magnitude > targetChangeTolerance) {
 									targetPos = target.position;
@@ -43,10 +43,10 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 							agent.transform.position = transform.position;
 
 							// use the values to move the character
-							character.Move (agent.desiredVelocity, false, false, targetPos);
+							character.Move (agent.desiredVelocity, false, false, targetPos,false,false);
 					} else {
 							// We still need to call the character's move function, but we send zeroed input as the move param.
-							character.Move (Vector3.zero, false, false, transform.position + transform.forward * 100);
+							character.Move (Vector3.zero, false, false, transform.position + transform.forward * 100, false,false);
 
 					}
 			}

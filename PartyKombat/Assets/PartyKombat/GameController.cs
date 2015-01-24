@@ -7,9 +7,9 @@ public class GameController : MonoBehaviour {
 
 	public short currentKid;
 	public GameObject [] refKids;
-
+	public bool crouching;
 	void Awake(){
-
+		crouching = false;
 		refKids = new GameObject[4];
 		if (control == null) {
 			DontDestroyOnLoad(gameObject);
