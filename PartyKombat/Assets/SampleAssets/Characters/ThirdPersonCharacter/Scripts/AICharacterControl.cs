@@ -31,7 +31,7 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 			if (GameController.control.currentKid != character.advancedSettings.characterID) {
 
 				target = GameController.control.refKids[(int)GameController.control.currentKid-1].transform.GetChild((int)character.advancedSettings.characterID+1).gameObject.transform;
-				Debug.Log(GameController.control.crouching.ToString());
+
 				if (target != null && !(GameController.control.crouching)) {
 							// update the progress if the character has made it to the previous target
 							if ((target.position - targetPos).magnitude > targetChangeTolerance) {
