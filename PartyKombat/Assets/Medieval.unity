@@ -16894,6 +16894,10 @@ Prefab:
       propertyPath: m_Name
       value: Goblin
       objectReference: {fileID: 0}
+    - target: {fileID: 120856, guid: e2434c4ffc6765f46814e8ecee1ad4df, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2434c4ffc6765f46814e8ecee1ad4df, type: 2}
   m_RootGameObject: {fileID: 1942115417}
@@ -22316,6 +22320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refKids: []
+  crouching: 0
 --- !u!4 &736554964
 Transform:
   m_ObjectHideFlags: 0
@@ -40889,7 +40894,7 @@ Transform:
   m_PrefabInternal: {fileID: 382081501}
   m_GameObject: {fileID: 1336896052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 309.899994, y: 100, z: 784.099976}
+  m_LocalPosition: {x: 309.899994, y: 99.9980011, z: 784.099976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 966095359}
@@ -49333,7 +49338,7 @@ Transform:
   m_PrefabInternal: {fileID: 382081501}
   m_GameObject: {fileID: 1631654230}
   m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
-  m_LocalPosition: {x: -.00602811668, y: 0, z: 0}
+  m_LocalPosition: {x: -.00999999978, y: -3.3900001, z: 0}
   m_LocalScale: {x: 2.53999996, y: 2.53999996, z: 2.53999996}
   m_Children: []
   m_Father: {fileID: 1336896053}
@@ -60545,7 +60550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1942115418
 Transform:
   m_ObjectHideFlags: 0
