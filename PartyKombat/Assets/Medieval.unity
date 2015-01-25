@@ -83,15 +83,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 458068, guid: 86cf75a12da1bb146af99fe922abeec3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 599.700012
+      value: 281.899994
       objectReference: {fileID: 0}
     - target: {fileID: 458068, guid: 86cf75a12da1bb146af99fe922abeec3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 100
+      value: 118.900002
       objectReference: {fileID: 0}
     - target: {fileID: 458068, guid: 86cf75a12da1bb146af99fe922abeec3, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 687.940002
+      value: 687.900024
       objectReference: {fileID: 0}
     - target: {fileID: 458068, guid: 86cf75a12da1bb146af99fe922abeec3, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5186,6 +5186,7 @@ GameObject:
   - 33: {fileID: 208592968}
   - 23: {fileID: 208592967}
   - 114: {fileID: 208592966}
+  - 65: {fileID: 208592969}
   m_Layer: 4
   m_Name: River
   m_TagString: Untagged
@@ -5246,6 +5247,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 612848939}
   m_GameObject: {fileID: 208592964}
   m_Mesh: {fileID: 4300008, guid: ce8d79c79d11b8f9d00076e98d76c639, type: 3}
+--- !u!65 &208592969
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 208592964}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.69824505, y: 0, z: 3.52368641}
+  m_Center: {x: 1.4901174e-07, y: -1, z: 3.27825518e-07}
 --- !u!1 &209516828
 GameObject:
   m_ObjectHideFlags: 0
@@ -6316,7 +6329,7 @@ Transform:
   m_PrefabInternal: {fileID: 2103588}
   m_GameObject: {fileID: 240758955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 599.700012, y: 100, z: 687.940002}
+  m_LocalPosition: {x: 281.899994, y: 118.900002, z: 687.900024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 820563158}
@@ -17701,6 +17714,7 @@ GameObject:
   - 33: {fileID: 603095266}
   - 23: {fileID: 603095265}
   - 114: {fileID: 603095264}
+  - 65: {fileID: 603095267}
   m_Layer: 4
   m_Name: River
   m_TagString: Untagged
@@ -17761,6 +17775,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 3857690}
   m_GameObject: {fileID: 603095262}
   m_Mesh: {fileID: 4300008, guid: ce8d79c79d11b8f9d00076e98d76c639, type: 3}
+--- !u!65 &603095267
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603095262}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.80083132, y: 0, z: 3.9043324}
+  m_Center: {x: -8.9407024e-08, y: -1, z: 3.27825518e-07}
 --- !u!1 &604044688
 GameObject:
   m_ObjectHideFlags: 0
@@ -19922,6 +19948,7 @@ GameObject:
   - 33: {fileID: 682826646}
   - 23: {fileID: 682826645}
   - 114: {fileID: 682826644}
+  - 65: {fileID: 682826647}
   m_Layer: 4
   m_Name: River
   m_TagString: Untagged
@@ -19982,6 +20009,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 2102525797}
   m_GameObject: {fileID: 682826642}
   m_Mesh: {fileID: 4300008, guid: ce8d79c79d11b8f9d00076e98d76c639, type: 3}
+--- !u!65 &682826647
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 682826642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.80083752, y: 0, z: 3.90434742}
+  m_Center: {x: -2.08616456e-07, y: -1, z: 3.27825774e-07}
 --- !u!1 &685644786
 GameObject:
   m_ObjectHideFlags: 0
@@ -23805,6 +23844,7 @@ GameObject:
   - 33: {fileID: 807843855}
   - 23: {fileID: 807843854}
   - 114: {fileID: 807843853}
+  - 65: {fileID: 807843856}
   m_Layer: 4
   m_Name: Lake
   m_TagString: Untagged
@@ -23865,6 +23905,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1144752931}
   m_GameObject: {fileID: 807843851}
   m_Mesh: {fileID: 4300008, guid: ce8d79c79d11b8f9d00076e98d76c639, type: 3}
+--- !u!65 &807843856
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 807843851}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.39025235, y: 0, z: 4.60985279}
+  m_Center: {x: -4.47034893e-07, y: -1, z: 3.57627897e-07}
 --- !u!1 &808856533
 GameObject:
   m_ObjectHideFlags: 0
@@ -46865,6 +46917,7 @@ GameObject:
   - 33: {fileID: 1483028520}
   - 23: {fileID: 1483028519}
   - 114: {fileID: 1483028518}
+  - 65: {fileID: 1483028521}
   m_Layer: 4
   m_Name: River
   m_TagString: Untagged
@@ -46925,6 +46978,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1817975989}
   m_GameObject: {fileID: 1483028516}
   m_Mesh: {fileID: 4300008, guid: ce8d79c79d11b8f9d00076e98d76c639, type: 3}
+--- !u!65 &1483028521
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1483028516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.77978706, y: 0, z: 5.37278795}
+  m_Center: {x: -3.27825717e-07, y: -1, z: -1.49011456e-07}
 --- !u!1 &1483451600
 GameObject:
   m_ObjectHideFlags: 0
@@ -47733,6 +47798,7 @@ GameObject:
   - 33: {fileID: 1525294097}
   - 23: {fileID: 1525294096}
   - 114: {fileID: 1525294095}
+  - 65: {fileID: 1525294099}
   m_Layer: 4
   m_Name: River
   m_TagString: Untagged
@@ -47793,6 +47859,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 316592880}
   m_RootOrder: 1
+--- !u!65 &1525294099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1525294094}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20.7847233, y: 0, z: 3.6242342}
+  m_Center: {x: 1.10268581e-06, y: -1, z: 3.27825575e-07}
 --- !u!1 &1527444245
 GameObject:
   m_ObjectHideFlags: 0
@@ -50522,6 +50600,7 @@ GameObject:
   - 33: {fileID: 1652425213}
   - 23: {fileID: 1652425212}
   - 114: {fileID: 1652425211}
+  - 65: {fileID: 1652425214}
   m_Layer: 4
   m_Name: Moat
   m_TagString: Untagged
@@ -50582,6 +50661,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1411343364}
   m_GameObject: {fileID: 1652425209}
   m_Mesh: {fileID: 4300008, guid: ce8d79c79d11b8f9d00076e98d76c639, type: 3}
+--- !u!65 &1652425214
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1652425209}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.94588113, y: 0, z: 2.05530643}
+  m_Center: {x: -2.98024183e-08, y: -1, z: 4.47034921e-07}
 --- !u!1 &1652500886
 GameObject:
   m_ObjectHideFlags: 0
@@ -64901,6 +64992,7 @@ GameObject:
   - 33: {fileID: 2055536413}
   - 23: {fileID: 2055536412}
   - 114: {fileID: 2055536411}
+  - 65: {fileID: 2055536414}
   m_Layer: 4
   m_Name: Moat
   m_TagString: Untagged
@@ -64961,6 +65053,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1735835538}
   m_GameObject: {fileID: 2055536409}
   m_Mesh: {fileID: 4300008, guid: ce8d79c79d11b8f9d00076e98d76c639, type: 3}
+--- !u!65 &2055536414
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2055536409}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.13007355, y: 0, z: 2.36118269}
+  m_Center: {x: -2.08616186e-07, y: -1, z: 3.27825461e-07}
 --- !u!1 &2055612042
 GameObject:
   m_ObjectHideFlags: 0
@@ -66882,6 +66986,7 @@ GameObject:
   - 33: {fileID: 2118158990}
   - 23: {fileID: 2118158989}
   - 114: {fileID: 2118158988}
+  - 65: {fileID: 2118158992}
   m_Layer: 4
   m_Name: Lake
   m_TagString: Untagged
@@ -66942,6 +67047,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 316592880}
   m_RootOrder: 0
+--- !u!65 &2118158992
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2118158987}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9999994, y: 0, z: 1.99999881}
+  m_Center: {x: -3.27825546e-07, y: -1, z: 3.27825546e-07}
 --- !u!1 &2119080093
 GameObject:
   m_ObjectHideFlags: 0
