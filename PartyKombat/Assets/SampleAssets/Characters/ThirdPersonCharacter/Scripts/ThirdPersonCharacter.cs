@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 namespace UnitySampleAssets.Characters.ThirdPerson
@@ -63,6 +64,7 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 
 		public int health;
 		private bool invulnerable;
+		public Slider healthSlider;
 
         // Use this for initialization
         private void Start()
