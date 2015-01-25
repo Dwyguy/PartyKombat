@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 
@@ -12,7 +12,11 @@ public class GameController : MonoBehaviour {
 	public short currentKid;
 	public GameObject [] refKids;
 	public bool crouching;
+
+	public List<InventoryObject> playerInventory;
+
 	void Awake(){
+		playerInventory = new List<InventoryObject> ();
 		crouching = false;
 		refKids = new GameObject[4];
 		if (control == null) {
@@ -28,8 +32,6 @@ public class GameController : MonoBehaviour {
 
 	void setCurrentKid(short ck){
 		currentKid = ck;
-
-
 	}
 
 	public void setRefKid(GameObject rk, int ck){

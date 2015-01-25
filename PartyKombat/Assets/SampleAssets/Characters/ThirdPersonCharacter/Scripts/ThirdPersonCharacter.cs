@@ -455,6 +455,11 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 							//other.rigidbody.AddForce(10,0,0);
 				}
 			}
+
+			if (other.name.Equals("Key"))
+				new InventoryObject (1, "Key").addObject ();
+			else if (other.name.Equals ("Gear"))
+				new InventoryObject (1, "Gear").addObject ();
 		}
 
 		void OnTriggerStay(Collider other){

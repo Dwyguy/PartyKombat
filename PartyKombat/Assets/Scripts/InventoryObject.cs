@@ -6,7 +6,7 @@ public class InventoryObject {
 	public string name = "x";
 
 	public InventoryObject(){
-		// create object
+		// create blank object
 	}
 
 	public InventoryObject(int qty, string name){
@@ -20,6 +20,10 @@ public class InventoryObject {
 
 	public int getQty(){
 		return quantity;
+	}
+
+	public void addObject(){
+		GameController.control.playerInventory.Add(this);
 	}
 
 
