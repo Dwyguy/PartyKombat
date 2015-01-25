@@ -44,9 +44,12 @@ public class DragonRun : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other){
-		if (other.tag.Equals ("PlayerAttack"))
-						gameObject.SetActive (false);
+		Debug.Log (other.tag);
 
+		if (other.tag.Equals ("PlayerAttack")) {
+			gameObject.SetActive (false);
+			Debug.Log("Here");
+				}
 		
 
 	}
