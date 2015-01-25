@@ -768,6 +768,7 @@ GameObject:
   - 114: {fileID: 11434776}
   - 95: {fileID: 9534776}
   - 114: {fileID: 11434774}
+  - 136: {fileID: 13693870}
   m_Layer: 9
   m_Name: Ninja
   m_TagString: Player
@@ -2164,6 +2165,8 @@ MonoBehaviour:
     jumpRepeatDelayTime: .25
     runCycleLegOffset: .200000003
     groundStickyEffect: 5
+    hitdelay: 1
+    timeOutDelay: 15
   groundCheckMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2172,6 +2175,12 @@ MonoBehaviour:
     m_Bits: 4294967295
   lookBlendTime: 0
   lookWeight: 0
+  health: 0
+  healthSlider: {fileID: 0}
+  damageImage: {fileID: 0}
+  flashSpeed: 5
+  flashColor: {r: 1, g: 0, b: 0, a: .100000001}
+  damaged: 0
 --- !u!136 &13634774
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2180,6 +2189,19 @@ CapsuleCollider:
   m_GameObject: {fileID: 134874}
   m_Material: {fileID: 13400000, guid: cf63880488ec29f43a759ecd9c6c5123, type: 2}
   m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: .300000012
+  m_Height: 1.79999995
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!136 &13693870
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134874}
+  m_Material: {fileID: 13400000, guid: cf63880488ec29f43a759ecd9c6c5123, type: 2}
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: .300000012
   m_Height: 1.79999995
