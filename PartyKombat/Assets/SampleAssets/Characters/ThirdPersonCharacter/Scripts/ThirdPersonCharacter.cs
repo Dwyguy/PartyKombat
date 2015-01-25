@@ -515,6 +515,9 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 			if (other.tag.Equals ("Attack")) {
 				takeHit ();
 			}
+			if (other.tag.Equals ("KOAttack")) {
+				OneHitKO ();
+			}
 		}
 
 		void OnTriggerExit(Collider other){
@@ -537,6 +540,10 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 				healthSlider.value = health;
 			}
 
+		}
+		void OneHitKO(){
+			health = 0;
+			
 		}
 
         //used for comparing distances
