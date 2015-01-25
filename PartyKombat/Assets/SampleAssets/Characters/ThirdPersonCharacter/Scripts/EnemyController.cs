@@ -77,10 +77,6 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 			//print ("target pos " + targetPos);
 		}
 
-		private void updateAnimator(){
-
-		}
-
 		IEnumerator BlendLookWeight()
 		{
 			float t = 0f;
@@ -147,7 +143,11 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 			// update the animator parameters
 			animator.SetFloat("Forward", 3.0f, 0.1f, Time.deltaTime);
 			animator.SetFloat("Turn", 2.0f, 0.1f, Time.deltaTime);
-
+			if(this.animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+				gameObject.tag = "Attack";
+			else
+				gameObject.tag = "Untagged";
+			//gameObject.tag = "Untagged";
 			//animator.SetBool ("Push", false);
 			
 			/*switch((int)this.advancedSettings.characterID){
@@ -220,8 +220,9 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 				targetPos = other.transform.position; // Get player
 				lookTarget = other.transform;
 				attackMode = true;
+				gameObject.tag = "Attack";
 				animator.SetTrigger("AttackTrigger");
-
+				//gameObject.tag = "Untagged";
 			}
 	}
 }

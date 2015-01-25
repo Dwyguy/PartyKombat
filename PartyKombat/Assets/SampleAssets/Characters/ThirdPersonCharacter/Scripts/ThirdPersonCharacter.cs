@@ -172,17 +172,7 @@ namespace UnitySampleAssets.Characters.ThirdPerson
         }
 
 		private void Update(){
-			if(damaged) // If player is damaged
-			{
-				damageImage.color = flashColor;
-			}
-			else
-			{
-				damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-			}
-			
-			// Reset the damaged flag.
-			damaged = false;
+
 		}
 
         private void ConvertMoveInput()
@@ -415,6 +405,18 @@ namespace UnitySampleAssets.Characters.ThirdPerson
                 // but we don't want to use that while airborne
                 animator.speed = 1;
             }
+
+			if(damaged) // If player is damaged
+			{
+				damageImage.color = flashColor;
+			}
+			else
+			{
+				damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+			}
+			
+			// Reset the damaged flag.
+			damaged = false;
         }
 
 
