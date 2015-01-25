@@ -65,6 +65,10 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 		public int health;
 		private bool invulnerable;
 		public Slider healthSlider;
+		public Image damageImage;
+		public float flashSpeed = 5.0f;
+		public Color flashColor = new Color(1.0f, 0.0f, 0.0f, 0.1f);
+		public bool damaged; // If the player has taken damage
 
         // Use this for initialization
         private void Start()
@@ -166,6 +170,20 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 
 
         }
+
+		private void Update(){
+			if(damaged) // If player is damaged
+			{
+				damageImage.color = flashColor;
+			}
+			else
+			{
+				damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+			}
+			
+			// Reset the damaged flag.
+			damaged = false;
+		}
 
         private void ConvertMoveInput()
         {
