@@ -483,10 +483,11 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 			}
 
 			if (other.name.Equals("Key")){
-				new InventoryObject (1, "Key").addObject ();
+				GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Key")).acquired = true;
 				Destroy (other.gameObject);
+				print ("hello");
 			} else if (other.name.Equals ("Gear")){
-				new InventoryObject (1, "Gear").addObject ();
+				GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Gear")).acquired = true;
 				Destroy (other.gameObject);
 			}
 		}

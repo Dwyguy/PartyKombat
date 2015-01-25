@@ -17,7 +17,8 @@ public class GameController : MonoBehaviour {
 
 	void Awake(){
 		playerInventory = new List<InventoryObject> ();
-		//playerInventory.Add(new InventoryObject(0, "Key");
+		playerInventory.Add(new InventoryObject(0, "Key", false));
+		playerInventory.Add (new InventoryObject (0, "Gear", false));
 		crouching = false;
 		refKids = new GameObject[4];
 		if (control == null) {

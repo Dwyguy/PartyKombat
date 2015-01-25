@@ -51,6 +51,7 @@
      <Compile Include="Assets\InventoryUIScript.cs" />
      <Compile Include="Assets\PartyKombat\GameController.cs" />
      <Compile Include="Assets\PartyKombat\Warp.cs" />
+     <Compile Include="Assets\PartyKombat\WarpToDragon.cs" />
      <Compile Include="Assets\PartyKombat\lasso.cs" />
      <Compile Include="Assets\SampleAssets\Cameras\Scripts\AbstractTargetFollower.cs" />
      <Compile Include="Assets\SampleAssets\Cameras\Scripts\AutoCam.cs" />

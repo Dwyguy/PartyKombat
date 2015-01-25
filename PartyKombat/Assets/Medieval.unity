@@ -18,7 +18,7 @@ RenderSettings:
   m_FogDensity: .00999999978
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
+  m_AmbientLight: {r: .566176474, g: .566176474, b: .566176474, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: .5
   m_FlareStrength: 1
@@ -5864,6 +5864,7 @@ GameObject:
   - 114: {fileID: 240758958}
   - 95: {fileID: 240758957}
   - 114: {fileID: 240758956}
+  - 136: {fileID: 240758964}
   m_Layer: 9
   m_Name: Knight
   m_TagString: Player
@@ -6021,6 +6022,20 @@ Transform:
   - {fileID: 2052818531}
   m_Father: {fileID: 0}
   m_RootOrder: 40
+--- !u!136 &240758964
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 13651464, guid: 86cf75a12da1bb146af99fe922abeec3,
+    type: 2}
+  m_PrefabInternal: {fileID: 2103588}
+  m_GameObject: {fileID: 240758955}
+  m_Material: {fileID: 13400000, guid: cf63880488ec29f43a759ecd9c6c5123, type: 2}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: .300000012
+  m_Height: 1.79999995
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &249945608
 Prefab:
   m_ObjectHideFlags: 0
@@ -11913,6 +11928,7 @@ Transform:
   m_LocalPosition: {x: 2.20000005, y: 1.22000003, z: 9.28999996}
   m_LocalScale: {x: .25, y: .25, z: .25}
   m_Children:
+  - {fileID: 1462177003}
   - {fileID: 1167141975}
   m_Father: {fileID: 1889749793}
   m_RootOrder: 14
@@ -11926,8 +11942,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.96000004, y: 1, z: 1}
-  m_Center: {x: -.360000014, y: 10.8000002, z: -23.7700005}
+  m_Size: {x: 9.55247498, y: 5.59999895, z: 3.88000107}
+  m_Center: {x: -.266148359, y: 10.7999058, z: -23.7699375}
 --- !u!1 &435708985
 GameObject:
   m_ObjectHideFlags: 0
@@ -33837,10 +33853,9 @@ Transform:
   m_LocalRotation: {x: -.430117249, y: 0, z: 0, w: .902773023}
   m_LocalPosition: {x: -0, y: 10.8299999, z: -23.6200008}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1462177003}
+  m_Children: []
   m_Father: {fileID: 429802373}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!23 &1167141976
 Renderer:
   m_ObjectHideFlags: 0
@@ -44081,11 +44096,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1462177002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.32000005, y: 0, z: 0}
+  m_LocalRotation: {x: -.430117279, y: 0, z: 0, w: .902773082}
+  m_LocalPosition: {x: -1.32001185, y: 10.8299294, z: -23.6201172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1167141975}
+  m_Father: {fileID: 429802373}
   m_RootOrder: 0
 --- !u!108 &1462177004
 Light:
@@ -53696,6 +53711,14 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: .902773023
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: cae2c0c73ce68104a820bf5f9ee8fafe, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: cae2c0c73ce68104a820bf5f9ee8fafe, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cae2c0c73ce68104a820bf5f9ee8fafe, type: 3}
   m_RootGameObject: {fileID: 429802371}
@@ -55466,6 +55489,14 @@ Prefab:
     - target: {fileID: 400004, guid: 49a0e923d39ec3c4c8bb97699e2f2903, type: 2}
       propertyPath: m_RootOrder
       value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 49a0e923d39ec3c4c8bb97699e2f2903, type: 2}
+      propertyPath: far clip plane
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 49a0e923d39ec3c4c8bb97699e2f2903, type: 2}
+      propertyPath: m_HDR
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49a0e923d39ec3c4c8bb97699e2f2903, type: 2}
@@ -64027,7 +64058,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: .0199999996
-  far clip plane: 400
+  far clip plane: 800
   field of view: 60
   orthographic: 0
   orthographic size: 100
@@ -64165,10 +64196,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TerrainData: {fileID: 15600000, guid: 607c19968f20bce4bb29ac5f4e01291b, type: 2}
   m_TreeDistance: 2000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
+  m_TreeBillboardDistance: 216
+  m_TreeCrossFadeLength: 0
+  m_TreeMaximumFullLODCount: 0
+  m_DetailObjectDistance: 197
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
