@@ -476,10 +476,13 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 				}
 			}
 
-			if (other.name.Equals("Key"))
+			if (other.name.Equals("Key")){
 				new InventoryObject (1, "Key").addObject ();
-			else if (other.name.Equals ("Gear"))
+				Destroy (other.gameObject);
+			} else if (other.name.Equals ("Gear")){
 				new InventoryObject (1, "Gear").addObject ();
+				Destroy (other.gameObject);
+			}
 		}
 
 		void OnTriggerStay(Collider other){
@@ -495,10 +498,12 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 
 		void takeHit(){
 			if (Time.time > lastHitTime + advancedSettings.hitdelay) {
+				damaged = true;
 				if (health > 0){
 					health --;	
 				}
 				lastHitTime = Time.time;
+				healthSlider.value = health;
 			}
 
 		}
