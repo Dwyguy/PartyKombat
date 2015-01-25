@@ -367,13 +367,16 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 
 			animator.SetBool ("Push", false);
 
-			switch((int)this.advancedSettings.characterID){
-			case 1:
-				//animator.SetBool("Push", primaryInput);
-				break;
-			default:
-				break;
-
+			if (advancedSettings.characterID == 4) {
+				if (this.primaryInput){
+					Debug.Log("Not Thrown");
+					if (!GameController.control.lassoFlag){
+						animator.SetTrigger("Throw");
+						Debug.Log("Thrown");
+					}
+					GameController.control.shootLasso(this.transform.position, this.transform.localRotation);
+					
+				}
 			}
 		
             if (!onGround)
@@ -504,6 +507,7 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 				} else if(GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Key")).acquired == true){
 				          //&& GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Gear")).quantity < 2){
 					speech.text = "That's the key! Thank you so much! Here is a gear for the gatehouse in return.";
+					GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Gear")).acquired = true;
 					GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Gear")).editQty(1);
 					GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Key")).editQty(-1);
 				}
