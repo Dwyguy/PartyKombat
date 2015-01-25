@@ -16,16 +16,18 @@ public class InventoryUIScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(ContainsItem("Key")){
-			if(GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Key")).acquired)
-				keyCnt.text = "x 1";
-			else
-				keyCnt.text = "x 0";
+			keyCnt.text = "x " + GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Key")).getQty().ToString();
+//			if(GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Key")).acquired)
+//				keyCnt.text = "x " + GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Key")).getQty().ToString();
+//			else
+//				keyCnt.text = "x 0";
 		}
 		if(ContainsItem ("Gear")){
-			if(GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Gear")).acquired)
-				gearCnt.text = "x 1";
-			else
-				gearCnt.text = "x 0";
+			gearCnt.text = "x " + GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Gear")).getQty().ToString();
+//			if(GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Gear")).acquired)
+//				gearCnt.text = "x 1";
+//			else
+//				gearCnt.text = "x 0";
 		}
 	}
 

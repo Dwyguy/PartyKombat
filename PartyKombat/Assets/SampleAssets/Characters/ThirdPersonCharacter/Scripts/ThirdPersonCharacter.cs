@@ -69,6 +69,7 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 		public float flashSpeed = 5.0f;
 		public Color flashColor = new Color(1.0f, 0.0f, 0.0f, 0.1f);
 		public bool damaged; // If the player has taken damage
+		public Text speech;
 
         // Use this for initialization
         private void Start()
@@ -77,6 +78,7 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 			invulnerable = false;
 			lastHitTime = 0f;
 			timeOut = 0;
+			speech.enabled = false;
 
             animator = GetComponentInChildren<Animator>();
             capsule = collider as CapsuleCollider;
@@ -484,11 +486,27 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 
 			if (other.name.Equals("Key")){
 				GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Key")).acquired = true;
+				GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Key")).editQty(1);
 				Destroy (other.gameObject);
-				print ("hello");
+				print ("ADSFASDFA " + GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Key")).acquired);
 			} else if (other.name.Equals ("Gear")){
 				GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Gear")).acquired = true;
+				GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Gear")).editQty(1);
 				Destroy (other.gameObject);
+			}
+			//GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Key")).editQty(-1);
+
+			if (other.name.Equals ("Blacksmith")) {
+				speech.enabled = true;
+				if(GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Gear")).acquired == false
+				   && !GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Key")).acquired){
+					speech.text = "A troll ran off with the key to my forge! I think he went into the forest.\nCan you retrieve it for me?";
+				} else if(GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Key")).acquired == true){
+				          //&& GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Gear")).quantity < 2){
+					speech.text = "That's the key! Thank you so much! Here is a gear for the gatehouse in return.";
+					GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Gear")).editQty(1);
+					GameController.control.playerInventory.Find((InventoryObject io) => io.name.Equals ("Key")).editQty(-1);
+				}
 			}
 		}
 
@@ -498,6 +516,12 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 				takeHit ();
 			}
 		}
+
+		void OnTriggerExit(Collider other){
+			if(other.name.Equals("Blacksmith"))
+			   speech.enabled = false;
+		}
+
         void OnDisable()
         {
             lookWeight = 0f;
