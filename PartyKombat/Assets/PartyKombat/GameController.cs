@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class GameController : MonoBehaviour {
 
 	public static GameController control;
+
+	public Rigidbody lassoShot;
+	public float lassoSpeed = 100f;
+	public bool lassoFlag;
 
 	public short currentKid;
 	public GameObject [] refKids;
@@ -30,5 +34,15 @@ public class GameController : MonoBehaviour {
 
 	public void setRefKid(GameObject rk, int ck){
 		refKids[ck-1] = rk;
+	}
+
+	public void shootLasso(Vector3 pos, Quaternion direction){
+		if (!lassoFlag) {
+				Rigidbody lassoClone = (Rigidbody) Instantiate(lassoShot,pos+new Vector3(0,1,0), direction);
+
+			lassoClone.velocity = lassoClone.transform.forward * lassoSpeed;
+		
+				lassoFlag = true;
+		}
 	}
 }

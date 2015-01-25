@@ -10,7 +10,7 @@ namespace UnitySampleAssets.Characters.ThirdPerson
         [SerializeField] private float airSpeed = 6; // determines the max speed of the character while airborne
         [SerializeField] private float airControl = 2; // determines the response speed of controlling the character while airborne
         [Range(1, 4)] [SerializeField] public float gravityMultiplier = 2; // gravity modifier - often higher than natural gravity feels right for game characters
-        [SerializeField] [Range(0.1f, 3f)] private float moveSpeedMultiplier = 1; // how much the move speed of the character will be multiplied by
+        [SerializeField] [Range(0.1f, 3f)] public float moveSpeedMultiplier = 1; // how much the move speed of the character will be multiplied by
         [SerializeField] [Range(0.1f, 3f)] private float animSpeedMultiplier = 1; // how much the animation of the character will be multiplied by
 		public AdvancedSettings advancedSettings; // Container for the advanced settings class , thiss allows the advanced settings to be in a foldout in the inspector
 
@@ -111,6 +111,7 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 
             // transfer input parameters to member variables.
             this.moveInput = move;
+
             this.crouchInput = crouch;
             this.jumpInput = jump;
             this.currentLookPos = lookPos;
@@ -348,7 +349,17 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 
 			}
 		
+			if (advancedSettings.characterID == 4) {
+				if (this.primaryInput){
+					Debug.Log("Not Thrown");
+					if (!GameController.control.lassoFlag){
+						animator.SetTrigger("Throw");
+						Debug.Log("Thrown");
+					}
+					GameController.control.shootLasso(this.transform.position, this.transform.localRotation);
 
+				}
+			}
 
             if (!onGround)
             {
@@ -434,7 +445,7 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 		void OnTriggerEnter(Collider other){
 
 			if (advancedSettings.characterID == 1) {
-				Debug.Log("GOTHERE");
+
 					if (other.tag.Equals ("Pushable")) {
 							animator.SetTrigger ("Push");
 							//other.rigidbody.AddForce(10,0,0);

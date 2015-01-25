@@ -98,9 +98,16 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 					bool walkToggle = Input.GetKey (KeyCode.LeftShift);
 					// We select appropriate speed based on whether we're walking by default, and whether the walk/run toggle button is pressed:
 					float walkMultiplier = (walkByDefault ? walkToggle ? 1 : 0.5f : walkToggle ? 0.5f : 1);
+
+					if (character.advancedSettings.characterID == 2 && primary) {
+						character.moveSpeedMultiplier = 4f;
+					}else{
+					character.moveSpeedMultiplier = 1f;
+					}
+
 					move *= walkMultiplier;
 	#endif
-
+			
 					// calculate the head look target position
 					lookPos = lookInCameraDirection && cam != null
 	? transform.position + cam.forward * 100
