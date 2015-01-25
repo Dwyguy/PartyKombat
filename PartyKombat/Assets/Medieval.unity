@@ -83,8 +83,6 @@ Prefab:
     m_Modifications:
     - target: {fileID: 458068, guid: 86cf75a12da1bb146af99fe922abeec3, type: 2}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-<<<<<<< HEAD
       value: 949.099976
       objectReference: {fileID: 0}
     - target: {fileID: 458068, guid: 86cf75a12da1bb146af99fe922abeec3, type: 2}
@@ -94,11 +92,6 @@ Prefab:
     - target: {fileID: 458068, guid: 86cf75a12da1bb146af99fe922abeec3, type: 2}
       propertyPath: m_LocalPosition.z
       value: 838.690002
-=======
-      value: 950
-=======
-      value: 281.899994
->>>>>>> parent of b0176fe... Invisible walls to save you from the void
       objectReference: {fileID: 0}
     - target: {fileID: 458068, guid: 86cf75a12da1bb146af99fe922abeec3, type: 2}
       propertyPath: m_LocalPosition.y
@@ -106,12 +99,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 458068, guid: 86cf75a12da1bb146af99fe922abeec3, type: 2}
       propertyPath: m_LocalPosition.z
-<<<<<<< HEAD
       value: 688
->>>>>>> origin/master
-=======
-      value: 687.900024
->>>>>>> parent of b0176fe... Invisible walls to save you from the void
       objectReference: {fileID: 0}
     - target: {fileID: 458068, guid: 86cf75a12da1bb146af99fe922abeec3, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6465,15 +6453,7 @@ Transform:
   m_PrefabInternal: {fileID: 2103588}
   m_GameObject: {fileID: 240758955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_LocalPosition: {x: 949.099976, y: 100.5, z: 838.690002}
-=======
   m_LocalPosition: {x: 950, y: 119, z: 688}
->>>>>>> origin/master
-=======
-  m_LocalPosition: {x: 281.899994, y: 118.900002, z: 687.900024}
->>>>>>> parent of b0176fe... Invisible walls to save you from the void
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 820563158}
@@ -34673,8 +34653,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1123241099}
-<<<<<<< HEAD
-<<<<<<< HEAD
 --- !u!1 &1128151858
 GameObject:
   m_ObjectHideFlags: 0
@@ -34685,27 +34663,11 @@ GameObject:
   - 4: {fileID: 1128151859}
   m_Layer: 0
   m_Name: LeftHandMiddle1
-=======
---- !u!1 &1128064901
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1128064905}
-  - 33: {fileID: 1128064904}
-  - 64: {fileID: 1128064903}
-  - 23: {fileID: 1128064902}
-  m_Layer: 0
-  m_Name: Plane
->>>>>>> origin/master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!4 &1128151859
 Transform:
   m_ObjectHideFlags: 0
@@ -34719,7 +34681,6 @@ Transform:
   - {fileID: 1892292853}
   m_Father: {fileID: 1295256191}
   m_RootOrder: 1
-=======
 --- !u!23 &1128064902
 Renderer:
   m_ObjectHideFlags: 0
@@ -34772,9 +34733,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1378201652}
   m_RootOrder: 2
->>>>>>> origin/master
-=======
->>>>>>> parent of b0176fe... Invisible walls to save you from the void
 --- !u!1 &1129251527
 GameObject:
   m_ObjectHideFlags: 0
