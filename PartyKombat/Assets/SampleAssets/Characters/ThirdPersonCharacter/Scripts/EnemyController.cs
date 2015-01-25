@@ -27,7 +27,9 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 		public float lookBlendTime;
 		public float lookWeight;
 		private float forwardAmount;
-		
+
+		public bool dead;
+
 		// Use this for initialization
 		private void Start()
 		{
@@ -37,6 +39,7 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 			animator = GetComponentInChildren<Animator>();
 			startPos = this.transform.position;
 			g = new GameObject ();
+			dead = false;
 			getNewPositions();
 			SetUpAnimator ();
 
@@ -220,11 +223,20 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 				targetPos = other.transform.position; // Get player
 				lookTarget = other.transform;
 				attackMode = true;
-				gameObject.tag = "Attack";
+				//gameObject.tag = "Attack";
 				animator.SetTrigger("AttackTrigger");
 				//gameObject.tag = "Untagged";
 			}
+
+
 	}
+
+		void OnTriggerStay(Collider other){
+			if(other.tag == "PlayerAttack"){
+				dead = true;
+				Destroy (gameObject);
+			}
+		}
 }
 }
 	

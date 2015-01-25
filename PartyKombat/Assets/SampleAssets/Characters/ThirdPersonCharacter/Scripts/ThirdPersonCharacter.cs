@@ -374,8 +374,6 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 
 			}
 		
-
-
             if (!onGround)
             {
                 animator.SetFloat("Jump", velocity.y);
@@ -417,6 +415,12 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 			
 			// Reset the damaged flag.
 			damaged = false;
+
+			// Attack state
+			if(this.animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+				gameObject.tag = "PlayerAttack";
+			else
+				gameObject.tag = "Player";
         }
 
 
