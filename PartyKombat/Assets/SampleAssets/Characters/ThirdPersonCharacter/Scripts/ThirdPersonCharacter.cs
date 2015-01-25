@@ -31,6 +31,8 @@ namespace UnitySampleAssets.Characters.ThirdPerson
             public float jumpRepeatDelayTime = 0.25f; // amount of time that must elapse between landing and being able to jump again
             public float runCycleLegOffset = 0.2f; // animation cycle offset (0-1) used for determining correct leg to jump off
             public float groundStickyEffect = 5f; // power of 'stick to ground' effect - prevents bumping down slopes.
+			public float hitdelay = 1f;
+			public float timeOutDelay = 15f;
         }
 
         public Transform lookTarget { get; set; } // The point where the character will be looking at
@@ -43,7 +45,9 @@ namespace UnitySampleAssets.Characters.ThirdPerson
         private float originalHeight; // Used for tracking the original height of the characters capsule collider
         private Animator animator; // The animator for the character
         private float lastAirTime; // USed for checking when the character was last in the air for controlling jumps
-        private CapsuleCollider capsule; // The collider for the character
+		private float lastHitTime; 
+		private float timeOut;
+		private CapsuleCollider capsule; // The collider for the character
         private const float half = 0.5f; // whats it says, it's a constant for a half
         private Vector3 moveInput;
         private bool crouchInput;
@@ -57,9 +61,17 @@ namespace UnitySampleAssets.Characters.ThirdPerson
         public float lookBlendTime;
         public float lookWeight;
 
+		public int health;
+		private bool invulnerable;
+
         // Use this for initialization
         private void Start()
         {
+			health = 3;
+			invulnerable = false;
+			lastHitTime = 0f;
+			timeOut = 0;
+
             animator = GetComponentInChildren<Animator>();
             capsule = collider as CapsuleCollider;
 			GameController.control.setRefKid (this.gameObject, (int)this.advancedSettings.characterID);
@@ -323,10 +335,14 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 
         private void UpdateAnimator()
         {
+			if (health <= 0) {
+				animator.SetBool("Dead", true);
+				return;
+			}
             // Here we tell the animator what to do based on the current states and inputs.
 			if (attackInput) {
 				animator.SetTrigger("Attack");
-				}
+			}
             // only use root motion when on ground:
             animator.applyRootMotion = onGround;
 
@@ -432,7 +448,6 @@ namespace UnitySampleAssets.Characters.ThirdPerson
         }
 
 		void OnTriggerEnter(Collider other){
-
 			if (advancedSettings.characterID == 1) {
 				Debug.Log("GOTHERE");
 					if (other.tag.Equals ("Pushable")) {
@@ -442,10 +457,26 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 			}
 		}
 
+		void OnTriggerStay(Collider other){
+
+			if (other.tag.Equals ("Attack")) {
+				takeHit ();
+			}
+		}
         void OnDisable()
         {
             lookWeight = 0f;
         }
+
+		void takeHit(){
+			if (Time.time > lastHitTime + advancedSettings.hitdelay) {
+				if (health > 0){
+					health --;	
+				}
+				lastHitTime = Time.time;
+			}
+
+		}
 
         //used for comparing distances
         private class RayHitComparer : IComparer
