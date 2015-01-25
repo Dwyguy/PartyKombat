@@ -18,12 +18,15 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 		public float x, y, z;
 		GameObject g;
 		bool attackMode = false;
+		public float wanderRangeX = 20.0f;
+		public float wanderRangeZ = 20.0f;
 
 		private Animator animator; // The animator for the character
 		public Transform lookTarget { get; set; } // The point where the character will be looking at
 		private Vector3 currentLookPos; // The current position where the character is looking
 		public float lookBlendTime;
 		public float lookWeight;
+		private float forwardAmount;
 		
 		// Use this for initialization
 		private void Start()
@@ -48,14 +51,14 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 					targetPos = target.position;
 					agent.SetDestination (targetPos);
 						
-					print ("target pos " + targetPos);
-					print ("trans pos " + transform.position);
+					//print ("target pos " + targetPos);
+					//print ("trans pos " + transform.position);
 				} else {
 					if(!attackMode)
 					getNewPositions ();
 				}
 				agent.transform.position = transform.position;
-
+				UpdateAnimator();
 			} else {
 				getNewPositions();
 			}
@@ -63,13 +66,14 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 
 		void getNewPositions(){
 			//print ("startPos " + startPos);
-			x = Random.Range(startPos.x-20, startPos.x+20);
+			x = Random.Range(startPos.x - wanderRangeX, startPos.x + wanderRangeX);
 			y = startPos.y;
-			z = Random.Range (startPos.z-20, startPos.z+20);
+			z = Random.Range (startPos.z - wanderRangeZ, startPos.z + wanderRangeZ);
 			targetPos = new Vector3(x, y, z);
 			agent.SetDestination (targetPos);
 			g.transform.position = targetPos;
 			target = g.transform;
+			lookTarget = g.transform;
 			//print ("target pos " + targetPos);
 		}
 
@@ -133,19 +137,17 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 		private void UpdateAnimator()
 		{
 			// Here we tell the animator what to do based on the current states and inputs.
-			if (attackMode) {
-				animator.SetTrigger("Attack");
-			}
+			//if (attackMode) {
+			//	animator.SetBool("Attack", true);
+				//animator.SetTrigger("Attack");
+			//}
 			// only use root motion when on ground:
-			//animator.applyRootMotion = onGround;
+			animator.applyRootMotion = true;
 			
 			// update the animator parameters
-			animator.SetFloat("Forward", 1.0f, 0.1f, Time.deltaTime);
-			animator.SetFloat("Turn", 1.0f, 0.1f, Time.deltaTime);
-			//animator.SetBool ("Crouch", crouchInput);
-			
-			//animator.SetBool("OnGround", onGround);
-			
+			animator.SetFloat("Forward", 3.0f, 0.1f, Time.deltaTime);
+			animator.SetFloat("Turn", 2.0f, 0.1f, Time.deltaTime);
+
 			//animator.SetBool ("Push", false);
 			
 			/*switch((int)this.advancedSettings.characterID){
@@ -206,7 +208,6 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 			animator.SetLookAtPosition(currentLookPos);
 		}
 		
-		
 		void SetTarget(Transform target)
 		{
 			this.target = target;
@@ -217,8 +218,11 @@ namespace UnitySampleAssets.Characters.ThirdPerson
 			if (other.tag == "Player") { // AGGRO
 				target = other.transform;
 				targetPos = other.transform.position; // Get player
+				lookTarget = other.transform;
 				attackMode = true;
-		}
+				animator.SetTrigger("AttackTrigger");
+
+			}
 	}
 }
 }
